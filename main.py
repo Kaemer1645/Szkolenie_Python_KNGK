@@ -13,8 +13,10 @@
 from PyQt5 import uic #zaimportowana biblioteka do wczytywania plikow UI
 from PyQt5.QtWidgets import QApplication, QFileDialog
 from PyQt5.Qt import pyqtSlot #zaimportowny dekorator
-import matplotlib.pyplot as plt
 import geopandas as gpd
+import pandas as pd
+from shapely.geometry import Point
+
 cls, wnd = uic.loadUiType('okno.ui')
 #cls i wnd jest to klasa oraz okno zapisane w dwoch zmiennych
 #zapisanie w jednej zmiennej wyrzuci nam krotke w ktorej beda te dwie zmienne
@@ -24,6 +26,7 @@ class Basic(wnd, cls):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.graph_window.hide()
 
     @pyqtSlot() #do metody clicked musimy uzyc dekoratora, zeby raz klikala
     #zdefiniowane sygnału
@@ -45,19 +48,34 @@ class Basic(wnd, cls):
         c = float(a) + float(b)
         self.leResult.setText(str(c))
 
-
-    def read_graph(self, shapefile):
-        map = gpd.read_file(shapefile)
-        print(map)
-        #fig, ax = plt.subplots(figsize=(12, 10))
-        #map.plot(ax=ax)
-        map.plot()
-
     @pyqtSlot()
     def on_pbGraph_clicked(self):
-        self.read_graph(r'D:\STUDIA\Kolo_naukowe\Szkolenie_PYTHON\Shapefiles\Województwa.shp')
-        #zeby rysowalo D:\STUDIA\Programowanie\MGR_SEM_I\Jezyk_Python_Na_Potrzeby_Gis\aplikacja_5
+        self.shapefile = self.read_shapefile(shp_path=r'D:\STUDIA\Kolo_naukowe\Szkolenie_PYTHON\Shapefiles\Województwa.shp')
+        print(self.shapefile.columns)
+        self.graph_window.read_graph(self.shapefile)
+        self.graph_window.show()
+        self.crs = self.shapefile.crs
+        self.leCrs.setText(str(self.crs.name))
 
+    def read_shapefile(self, shp_path):
+        shapefile = gpd.read_file(shp_path)
+        return shapefile
+
+    @pyqtSlot()
+    def on_pbShowPoints_clicked(self):
+        points = self.add_points()
+        self.graph_window.read_graph(self.shapefile, add_points=points)
+
+    def add_points(self):
+        df = pd.read_csv(r'D:\STUDIA\Kolo_naukowe\Szkolenie_PYTHON\wsp.csv', sep=' ')
+        geometry = [Point(xy) for xy in zip(df.iloc[:, 0], df.iloc[:, 1])]
+        #print(geometry)
+
+        gdf = gpd.GeoDataFrame(df, geometry=geometry, crs=self.crs)
+        colours = ['#00ff00']*len(geometry)
+        gdf['colour'] = colours
+        #gdf = gdf.to_crs(self.crs)
+        return gdf
     #wczytywanie pliku ze wspolrzednymi i wyswietlenie ich na
     #fancy map https://melaniesoek0120.medium.com/data-visualization-how-to-plot-a-map-with-geopandas-in-python-73b10dcd4b4b
     #https://geopandas.org/en/stable/docs/user_guide/mapping.html

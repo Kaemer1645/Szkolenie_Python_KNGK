@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>439</width>
-    <height>380</height>
+    <width>916</width>
+    <height>804</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>KNGK_KURS</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pbHello">
@@ -146,14 +146,65 @@
    <widget class="QPushButton" name="pbGraph">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>220</y>
+      <x>90</x>
+      <y>230</y>
       <width>93</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>graph</string>
+     <string>Generuj mape</string>
+    </property>
+   </widget>
+   <widget class="kngkGraph" name="graph_window" native="true">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>200</y>
+      <width>581</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>270</y>
+      <width>231</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Układ: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="leCrs"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="pbShowPoints">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>360</y>
+      <width>211</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pokaz współrzędne na mapie</string>
     </property>
    </widget>
   </widget>
@@ -162,7 +213,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>439</width>
+     <width>916</width>
      <height>26</height>
     </rect>
    </property>
@@ -184,7 +235,7 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionWczytaj_plik">
    <property name="text">
-    <string>Wczytaj plik</string>
+    <string>Wczytaj współrzędne</string>
    </property>
   </action>
   <action name="actionO_programie">
@@ -193,6 +244,14 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>kngkGraph</class>
+   <extends>QWidget</extends>
+   <header>kngk_graph.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
