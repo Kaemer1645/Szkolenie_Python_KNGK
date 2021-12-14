@@ -1,9 +1,5 @@
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
-import geopandas as gpd
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 
 class kngkGraph(FigureCanvasQTAgg):
@@ -14,13 +10,14 @@ class kngkGraph(FigureCanvasQTAgg):
         self.axes.cla()
 
     def read_graph(self, shapefile, add_points=None):
+        """tworzenie wykresu w oparciu o shp"""
         self.axes.clear()
         self.axes = shapefile.plot(ax=self.axes, color='cyan', edgecolor='white')
-        if add_points is not None:
+        if add_points is not None:  # dodanie punkto do wykresu
             add_points.plot(ax=self.axes, marker='o', color='red', markersize=5)
         self.draw()
 
-
-    #dodac czyszcenie wykresu
-
-
+    # dodac czyszcenie wykresu
+    def clear_graph(self):
+        self.axes.clear()
+        self.draw()

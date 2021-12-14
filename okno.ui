@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>916</width>
+    <width>923</width>
     <height>804</height>
    </rect>
   </property>
@@ -146,8 +146,8 @@
    <widget class="QPushButton" name="pbGraph">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>230</y>
+      <x>160</x>
+      <y>320</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -171,12 +171,15 @@
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>270</y>
+      <x>30</x>
+      <y>240</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -197,8 +200,8 @@
    <widget class="QPushButton" name="pbShowPoints">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>360</y>
+      <x>70</x>
+      <y>460</y>
       <width>211</width>
       <height>28</height>
      </rect>
@@ -207,14 +210,79 @@
      <string>Pokaz współrzędne na mapie</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>200</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>4.</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>360</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wczytaj csv z punktami</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbCsv">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>350</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbShp">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>290</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wczytanie .SHP</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbClear">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>530</y>
+      <width>141</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wyczyszczenie wykresu</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>916</width>
-     <height>26</height>
+     <width>923</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWczytaj_plik">
