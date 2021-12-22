@@ -1,8 +1,6 @@
 affine==2.3.0
 altgraph==0.17.2
 attrs==21.2.0
-basemap @ file:///D:/STUDIA/Kolo_naukowe/Szkolenie_PYTHON/whlz/basemap-1.2.2-cp38-cp38-win_amd64.whl
-Cartopy @ file:///D:/STUDIA/Kolo_naukowe/Szkolenie_PYTHON/whlz/Cartopy-0.20.1-cp38-cp38-win_amd64.whl
 certifi==2021.10.8
 charset-normalizer==2.0.9
 click==7.1.2
@@ -11,10 +9,8 @@ cligj==0.7.2
 colorama==0.4.4
 contextily==1.2.0
 cycler==0.11.0
-Fiona @ file:///D:/STUDIA/Kolo_naukowe/Szkolenie_PYTHON/whlz/Fiona-1.8.20-cp38-cp38-win_amd64.whl
 fonttools==4.28.3
 future==0.18.2
-GDAL @ file:///D:/STUDIA/Kolo_naukowe/Szkolenie_PYTHON/whlz/GDAL-3.3.3-cp38-cp38-win_amd64.whl
 geographiclib==1.52
 geopandas==0.10.2
 geoplot==0.4.4
@@ -46,7 +42,6 @@ python-dateutil==2.8.2
 pytz==2021.3
 pywin32-ctypes==0.2.0
 qt-material==2.8.13
-rasterio @ file:///D:/STUDIA/Kolo_naukowe/Szkolenie_PYTHON/whlz/rasterio-1.2.10-cp38-cp38-win_amd64.whl
 requests==2.26.0
 scikit-learn==1.0.1
 scipy==1.7.3
